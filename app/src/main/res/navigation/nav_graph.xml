@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="io.github.regbl.migrainetracker.MainFragment"
+        android:label="Main Fragment"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_dailyRecordFragment"
+            app:destination="@id/dailyRecordFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/dailyRecordFragment"
+        android:name="io.github.regbl.migrainetracker.DailyRecordFragment"
+        android:label="Daily Record Fragment"
+        tools:layout="@layout/fragment_daily_record" />
+
+</navigation>

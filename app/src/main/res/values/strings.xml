@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Migraine Tracker</string>
+    <string name="home_button_daily_record">Daily Record</string>
+    <string name="home_button_past_records">Past Records</string>
+    <string name="question_1">I had headaches, lasting how long?</string>
+    <string name="question_2">Intensity (1–10)</string>
+    <string name="question_3">Missed work Y/N</string>
+    <string name="question_4">Aura (describe)</string>
+    <string name="question_5">Nausea Y/N</string>
+    <string name="question_6">Light sensitive Y/N</string>
+    <string name="question_7">Sound sensitive Y/N</string>
+    <string name="question_8">Medications:</string>
+    <string name="question_9">Good response Y/N</string>
+    <string name="hint_edit_text_q_1">How long did your headaches last?</string>
+    <string name="hint_edit_text_q_4">Describe aura, if any</string>
+    <string name="hint_edit_text_q_8">List medications, if any</string>
+    <string name="submit">Submit</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

@@ -1,0 +1,2 @@
+rootProject.name = "Migraine Tracker"
+include ':app'
