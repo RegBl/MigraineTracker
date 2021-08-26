@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "questionnaire_table")
 data class Questionnaire(
     @PrimaryKey(autoGenerate = true)
-    val questionnaireId: Int,
-    val userId: Int,
+    val questionnaireId: Long,
+    val userId: Long,
     val questionOne: String?,
     val questionTwo: String?,
     val questionThree: String?,
