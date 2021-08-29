@@ -1,22 +1,44 @@
 package io.github.regbl.migrainetracker.data
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
+import java.time.LocalDateTime
+import java.util.*
 
-@Entity(tableName = "questionnaire_table")
-data class Questionnaire(
-    @PrimaryKey(autoGenerate = true)
-    val questionnaireId: Long,
-    val userId: Long,
-    val questionOne: String?,
-    val questionTwo: String?,
-    val questionThree: String?,
-    val questionFour: String?,
-    val questionFive: String?,
-    val questionSix: String?,
-    val questionSeven: String?,
-    val questionEight: String?,
-    val questionNine: String?,
-    val dateTime: String
+@Entity(
+    tableName = "questionnaire_table",
+    foreignKeys = [ForeignKey(entity = User::class, parentColumns = ["id"], childColumns = ["userId"])]
 )
+data class Questionnaire(
+    val userId: Long,
+
+    // "I had headaches lasting how long?"
+    val questionOne: String?,
+
+    // "Intensity (1-10)"
+    val questionTwo: String?,
+
+    // "Missed work (Y/N)"
+    val questionThree: String?,
+
+    // "Aura (describe)"
+    val questionFour: String?,
+
+    // "Nausea (Y/N)"
+    val questionFive: String?,
+
+    // "Light Sensitive (Y/N)"
+    val questionSix: String?,
+
+    // "Sound Sensitive (Y/N)"
+    val questionSeven: String?,
+
+    // "Medications (Y/N)"
+    val questionEight: String?,
+
+    // "Good Response (Y/N)"
+    val questionNine: String?,
+    val dateTime: LocalDateTime
+) {
+    @PrimaryKey(autoGenerate = true)
+    val questionnaireId: Long = 0
+}

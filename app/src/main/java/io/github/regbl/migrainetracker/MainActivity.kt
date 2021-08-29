@@ -14,11 +14,5 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
-        binding.buttonDailyRecord.setOnClickListener {
-            Intent(this, DailyRecordActivity::class.java).also {
-                startActivity(it)
-            }
-        }
     }
 }
