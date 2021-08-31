@@ -37,7 +37,7 @@ data class Questionnaire(
 
     // "Good Response (Y/N)"
     val questionNine: String?,
-    val dateTime: LocalDateTime
+    val dateTime: String
 ) {
     @PrimaryKey(autoGenerate = true)
     val questionnaireId: Long = 0
