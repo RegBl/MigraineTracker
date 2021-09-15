@@ -14,7 +14,7 @@ interface QuestionnaireDao {
     fun getQuestionnairesByDate(): Flow<List<Questionnaire>>
 
     @Query("SELECT * FROM questionnaire_table WHERE questionnaireId = :questionnaireId")
-    fun getQuestionnaire(questionnaireId: Long): Flow<Questionnaire>
+    fun getQuestionnaire(questionnaireId: Int): Flow<Questionnaire>
 
     // Update
     @Update(onConflict = OnConflictStrategy.REPLACE)
@@ -22,7 +22,7 @@ interface QuestionnaireDao {
 
     // Delete
     @Query("DELETE FROM questionnaire_table WHERE questionnaireId = :questionnaireId")
-    suspend fun delete(questionnaireId: Long)
+    suspend fun delete(questionnaireId: Int)
 
     @Query("DELETE FROM questionnaire_table")
     suspend fun deleteAll()

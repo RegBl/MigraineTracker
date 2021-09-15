@@ -9,36 +9,36 @@ import java.util.*
     foreignKeys = [ForeignKey(entity = User::class, parentColumns = ["id"], childColumns = ["userId"])]
 )
 data class Questionnaire(
-    val userId: Long,
+    var userId: Int,
 
     // "I had headaches lasting how long?"
-    val questionOne: String?,
+    var questionOne: String?,
 
     // "Intensity (1-10)"
-    val questionTwo: String?,
+    var questionTwo: String?,
 
     // "Missed work (Y/N)"
-    val questionThree: String?,
+    var questionThree: String?,
 
     // "Aura (describe)"
-    val questionFour: String?,
+    var questionFour: String?,
 
     // "Nausea (Y/N)"
-    val questionFive: String?,
+    var questionFive: String?,
 
     // "Light Sensitive (Y/N)"
-    val questionSix: String?,
+    var questionSix: String?,
 
     // "Sound Sensitive (Y/N)"
-    val questionSeven: String?,
+    var questionSeven: String?,
 
     // "Medications (Y/N)"
-    val questionEight: String?,
+    var questionEight: String?,
 
     // "Good Response (Y/N)"
-    val questionNine: String?,
-    val dateTime: String
+    var questionNine: String?,
+    var dateTime: String
 ) {
     @PrimaryKey(autoGenerate = true)
-    val questionnaireId: Long = 0
+    var questionnaireId: Int = 0
 }

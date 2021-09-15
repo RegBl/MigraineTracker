@@ -23,7 +23,7 @@ class MainFragment : Fragment() {
         val view = binding.root
 
         binding.buttonDailyRecord.setOnClickListener {
-            Navigation.findNavController(view).navigate(MainFragmentDirections.actionMainFragmentToDailyRecordFragment())
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToDailyRecordFragment())
         }
 
         return view

@@ -46,7 +46,6 @@ dependencies {
     implementation "io.insert-koin:koin-core:$rootProject.koin_version"
     implementation "io.insert-koin:koin-android:$rootProject.koin_version"
     implementation "io.insert-koin:koin-androidx-compose:$rootProject.koin_version"
-    implementation "io.insert-koin:koin-android-viewmodel:$rootProject.koin_version"
 
     // Kotlin components
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
