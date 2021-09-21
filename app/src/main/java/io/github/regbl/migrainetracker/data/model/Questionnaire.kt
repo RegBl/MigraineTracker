@@ -1,8 +1,6 @@
-package io.github.regbl.migrainetracker.data
+package io.github.regbl.migrainetracker.data.model
 
 import androidx.room.*
-import java.time.LocalDateTime
-import java.util.*
 
 @Entity(
     tableName = "questionnaire_table",

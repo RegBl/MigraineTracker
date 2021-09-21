@@ -1,6 +1,5 @@
-package io.github.regbl.migrainetracker
+package io.github.regbl.migrainetracker.view
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import io.github.regbl.migrainetracker.databinding.ActivityMainBinding

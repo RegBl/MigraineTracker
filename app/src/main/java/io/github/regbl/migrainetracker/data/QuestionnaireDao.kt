@@ -1,6 +1,7 @@
 package io.github.regbl.migrainetracker.data
 
 import androidx.room.*
+import io.github.regbl.migrainetracker.data.model.Questionnaire
 import kotlinx.coroutines.flow.Flow
 
 @Dao

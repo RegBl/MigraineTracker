@@ -1,4 +1,4 @@
-package io.github.regbl.migrainetracker.data
+package io.github.regbl.migrainetracker.data.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

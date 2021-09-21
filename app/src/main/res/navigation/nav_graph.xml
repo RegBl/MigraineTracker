@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="io.github.regbl.migrainetracker.MainFragment"
+        android:name="io.github.regbl.migrainetracker.view.MainFragment"
         android:label="Main Fragment"
         tools:layout="@layout/fragment_main" >
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/dailyRecordFragment"
-        android:name="io.github.regbl.migrainetracker.DailyRecordFragment"
+        android:name="io.github.regbl.migrainetracker.view.DailyRecordFragment"
         android:label="Daily Record Fragment"
         tools:layout="@layout/fragment_daily_record" />
 
