@@ -15,6 +15,9 @@
     <string name="hint_edit_text_q_4">Describe aura, if any</string>
     <string name="hint_edit_text_q_8">List medications, if any</string>
     <string name="submit">Submit</string>
+    <string name="past_record_date">Date:</string>
+    <string name="past_record_intensity">Intensity:</string>
+    <string name="past_record_id">ID:</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

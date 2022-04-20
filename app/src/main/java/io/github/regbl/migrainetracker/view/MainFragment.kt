@@ -25,12 +25,15 @@ class MainFragment : Fragment() {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        dailyRecordViewModel.allQuestionnairesByDate.observe(viewLifecycleOwner, {
-            it?.let {
-                Log.d(TAG, it.toString())
-            }
-        })
+        // For testing
+        // TODO: Move this to a test class
+//        dailyRecordViewModel.allQuestionnairesByDate.observe(viewLifecycleOwner) {
+//            it.let {
+//                Log.d(TAG, it.toString())
+//            }
+//        }
 
+        // TODO: Make button call from xml, listen to attached LineData in viewModel
         binding.buttonDailyRecord.setOnClickListener {
             findNavController().navigate(MainFragmentDirections.actionMainFragmentToDailyRecordFragment())
         }

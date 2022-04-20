@@ -9,7 +9,29 @@ import kotlinx.coroutines.launch
  * ViewModel used in DailyRecordFragment
  */
 class DailyRecordViewModel(private val repository: UserQuestionnaireRepository) : ViewModel() {
+
+    private val _navigateToMainFragment: MutableLiveData<Boolean?> = MutableLiveData<Boolean?>()
+    val navigateToMainFragment: LiveData<Boolean?>
+        get() = _navigateToMainFragment
+
+    val questionOneText = MutableLiveData<String>()
+    val questionTwoSlider = MutableLiveData<Float>()
+    val questionThreeToggle = MutableLiveData<Boolean>()
+    val questionFourText = MutableLiveData<String>()
+    val questionFiveToggle = MutableLiveData<Boolean>()
+    val questionSixToggle = MutableLiveData<Boolean>()
+    val questionSevenToggle = MutableLiveData<Boolean>()
+    val questionEightText = MutableLiveData<String>()
+    val questionNineToggle = MutableLiveData<Boolean>()
+
     val allQuestionnairesByDate: LiveData<List<Questionnaire>> = repository.allQuestionnairesByDate.asLiveData()
+
+    fun onSubmitQuestionnaire() {
+        viewModelScope.launch {
+            // assign questions to temporary variables
+            // get current dateTime
+        }
+    }
 
     fun insert(questionnaire: Questionnaire) = viewModelScope.launch {
         repository.insert(questionnaire)
