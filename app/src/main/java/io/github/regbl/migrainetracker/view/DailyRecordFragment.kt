@@ -28,6 +28,7 @@ class DailyRecordFragment : Fragment() {
     ): View? {
         _binding = FragmentDailyRecordBinding.inflate(inflater, container, false)
         val view = binding.root
+        binding.dailyRecordViewModel = dailyRecordViewModel
 
 //        binding.buttonSubmitDailyRecord.setOnClickListener {
 //            val questionnaire = Questionnaire(
