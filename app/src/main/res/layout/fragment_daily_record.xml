@@ -105,7 +105,7 @@
                     style="@style/question_toggle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:value="@={dailyRecordViewModel.questionThreeToggle}"
+                    android:checked="@={dailyRecordViewModel.questionThreeToggle}"
                     app:layout_constraintBottom_toBottomOf="@+id/text_question_3"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/text_question_3" />
@@ -165,7 +165,7 @@
                     style="@style/question_toggle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:value="@={dailyRecordViewModel.questionFiveToggle}"
+                    android:checked="@={dailyRecordViewModel.questionFiveToggle}"
                     app:layout_constraintBottom_toBottomOf="@+id/text_question_5"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/text_question_5" />
@@ -193,7 +193,7 @@
                     style="@style/question_toggle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:value="@={dailyRecordViewModel.questionSixToggle}"
+                    android:checked="@={dailyRecordViewModel.questionSixToggle}"
                     app:layout_constraintBottom_toBottomOf="@+id/text_question_6"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/text_question_6" />
@@ -221,7 +221,7 @@
                     style="@style/question_toggle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:value="@={dailyRecordViewModel.questionSevenToggle}"
+                    android:checked="@={dailyRecordViewModel.questionSevenToggle}"
                     app:layout_constraintBottom_toBottomOf="@+id/text_question_7"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/text_question_7" />
@@ -281,7 +281,7 @@
                     style="@style/question_toggle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:value="@={dailyRecordViewModel.questionNineToggle}"
+                    android:checked="@={dailyRecordViewModel.questionNineToggle}"
                     app:layout_constraintBottom_toBottomOf="@+id/text_question_9"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/text_question_9" />

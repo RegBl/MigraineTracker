@@ -34,10 +34,12 @@ class MainFragment : Fragment() {
 //            }
 //        }
 
-        // TODO: Make button call from xml, listen to attached LineData in viewModel
-        binding.buttonDailyRecord.setOnClickListener {
-            findNavController().navigate(MainFragmentDirections.actionMainFragmentToDailyRecordFragment())
-        }
+//        mainFragmentViewModel.navigateToDailyRecordEntry.observe(viewLifecycleOwner) {
+//            it.let {
+//                findNavController().navigate(MainFragmentDirections.actionMainFragmentToDailyRecordEntryFragment())
+//                mainFragmentViewModel.doneNavigating()
+//            }
+//        }
 
         return view
     }
