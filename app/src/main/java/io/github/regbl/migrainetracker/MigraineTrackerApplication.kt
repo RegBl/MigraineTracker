@@ -15,7 +15,8 @@ class MigraineTrackerApplication : Application() {
             androidContext(this@MigraineTrackerApplication)
             modules(
                 AppModule().userQuestionnaireRepositoryModule,
-                AppModule().viewModelModule,
+                AppModule().dailyRecordViewModelModule,
+                AppModule().mainFragmentViewModelModule,
                 AppModule().databaseModule
             )
         }

@@ -4,6 +4,7 @@ import androidx.room.Room
 import io.github.regbl.migrainetracker.data.UserQuestionnaireDatabase
 import io.github.regbl.migrainetracker.repository.UserQuestionnaireRepository
 import io.github.regbl.migrainetracker.viewmodel.DailyRecordViewModel
+import io.github.regbl.migrainetracker.viewmodel.MainFragmentViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -13,8 +14,12 @@ class AppModule {
         single { UserQuestionnaireRepository(get()) }
     }
 
-    val viewModelModule = module {
+    val dailyRecordViewModelModule = module {
         viewModel { DailyRecordViewModel(get()) }
+    }
+
+    val mainFragmentViewModelModule = module {
+        viewModel { MainFragmentViewModel() }
     }
 
     val databaseModule = module {

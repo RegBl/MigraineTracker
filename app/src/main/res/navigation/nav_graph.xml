@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_dailyRecordFragment"
-            app:destination="@id/dailyRecordFragment" />
+            app:destination="@id/dailyRecordFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_in_left" />
     </fragment>
 
     <fragment

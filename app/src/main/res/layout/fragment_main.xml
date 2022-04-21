@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="mainFragmentViewModel"
+            type="io.github.regbl.migrainetracker.viewmodel.MainFragmentViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,33 +17,34 @@
 
         <TextView
             android:id="@+id/text_app_label"
+            style="@style/app_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
-            style="@style/app_title"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/button_daily_record"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/button_daily_record" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/button_daily_record"
+            style="@style/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/button"
+            android:onClick="@{() -> mainFragmentViewModel.onDailyRecordClicked()}"
             android:text="@string/home_button_daily_record"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/button_past_records"
+            style="@style/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/button"
             android:text="@string/home_button_past_records"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_daily_record" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

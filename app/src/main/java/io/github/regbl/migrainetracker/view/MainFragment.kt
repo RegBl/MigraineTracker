@@ -26,6 +26,8 @@ class MainFragment : Fragment() {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        binding.mainFragmentViewModel = mainFragmentViewModel
+
         // For testing
         // TODO: Move this to a test class
 //        dailyRecordViewModel.allQuestionnairesByDate.observe(viewLifecycleOwner) {
@@ -34,12 +36,11 @@ class MainFragment : Fragment() {
 //            }
 //        }
 
-//        mainFragmentViewModel.navigateToDailyRecordEntry.observe(viewLifecycleOwner) {
-//            it.let {
-//                findNavController().navigate(MainFragmentDirections.actionMainFragmentToDailyRecordEntryFragment())
-//                mainFragmentViewModel.doneNavigating()
-//            }
-//        }
+        mainFragmentViewModel.navigateToDailyRecordEntry.observe(viewLifecycleOwner) {
+            findNavController()
+                .navigate(MainFragmentDirections.actionMainFragmentToDailyRecordFragment())
+//            mainFragmentViewModel.doneNavigating()
+        }
 
         return view
     }
