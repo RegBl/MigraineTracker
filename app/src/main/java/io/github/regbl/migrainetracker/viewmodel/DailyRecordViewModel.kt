@@ -15,7 +15,7 @@ class DailyRecordViewModel(private val repository: UserQuestionnaireRepository) 
         get() = _navigateToMainFragment
 
     val questionOneText = MutableLiveData<String>()
-    val questionTwoSlider = MutableLiveData<Float>()
+    var questionTwoSlider = MutableLiveData(1.0f)
     val questionThreeToggle = MutableLiveData<Boolean>()
     val questionFourText = MutableLiveData<String>()
     val questionFiveToggle = MutableLiveData<Boolean>()
