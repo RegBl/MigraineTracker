@@ -34,6 +34,5 @@ class AppModule {
         }
 
         single { get<UserQuestionnaireDatabase>().questionnaireDao() }
-        single { get<UserQuestionnaireDatabase>().userDao() }
     }
 }

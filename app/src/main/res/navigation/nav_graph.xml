@@ -12,9 +12,7 @@
         tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_dailyRecordFragment"
-            app:destination="@id/dailyRecordFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:popEnterAnim="@android:anim/slide_in_left" />
+            app:destination="@id/dailyRecordFragment" />
     </fragment>
 
     <fragment
@@ -24,10 +22,7 @@
         tools:layout="@layout/fragment_daily_record">
         <action
             android:id="@+id/action_dailyRecordFragment_to_mainFragment"
-            app:destination="@id/mainFragment"
-            app:launchSingleTop="false"
-            app:popUpTo="@id/mainFragment"
-            app:popUpToInclusive="true" />
+            app:destination="@id/mainFragment" />
 
     </fragment>
 

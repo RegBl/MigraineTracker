@@ -3,8 +3,7 @@ package io.github.regbl.migrainetracker.data.model
 import androidx.room.*
 
 @Entity(
-    tableName = "questionnaire_table",
-    foreignKeys = [ForeignKey(entity = User::class, parentColumns = ["id"], childColumns = ["userId"])]
+    tableName = "questionnaire_table"
 )
 data class Questionnaire(
     var userId: Int,
@@ -35,6 +34,7 @@ data class Questionnaire(
 
     // "Good Response (Y/N)"
     var questionNine: String?,
+
     var dateTime: String
 ) {
     @PrimaryKey(autoGenerate = true)

@@ -7,13 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import io.github.regbl.migrainetracker.databinding.FragmentMainBinding
-import io.github.regbl.migrainetracker.viewmodel.DailyRecordViewModel
 import io.github.regbl.migrainetracker.viewmodel.MainFragmentViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
 
-    val dailyRecordViewModel: DailyRecordViewModel by viewModel()
     val mainFragmentViewModel: MainFragmentViewModel by viewModel()
 
     private var _binding: FragmentMainBinding? = null
@@ -37,9 +35,11 @@ class MainFragment : Fragment() {
 //        }
 
         mainFragmentViewModel.navigateToDailyRecordEntry.observe(viewLifecycleOwner) {
-            findNavController()
-                .navigate(MainFragmentDirections.actionMainFragmentToDailyRecordFragment())
-//            mainFragmentViewModel.doneNavigating()
+            if (it == true) {
+                this.findNavController()
+                    .navigate(MainFragmentDirections.actionMainFragmentToDailyRecordFragment())
+                mainFragmentViewModel.doneNavigating()
+            }
         }
 
         return view

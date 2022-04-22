@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import io.github.regbl.migrainetracker.data.model.Questionnaire
+import androidx.navigation.fragment.findNavController
 import io.github.regbl.migrainetracker.databinding.FragmentDailyRecordBinding
 import io.github.regbl.migrainetracker.viewmodel.DailyRecordViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -30,23 +30,13 @@ class DailyRecordFragment : Fragment() {
         val view = binding.root
         binding.dailyRecordViewModel = dailyRecordViewModel
 
-//        binding.buttonSubmitDailyRecord.setOnClickListener {
-//            val questionnaire = Questionnaire(
-//                questionOne = binding.editTextQuestion1.toString(),
-//                questionTwo = binding.sliderQuestion2.toString(),
-//                questionThree = binding.toggleQuestion3.toString(),
-//                questionFour = binding.editTextQuestion4.toString(),
-//                questionFive = binding.toggleQuestion5.toString(),
-//                questionSix = binding.toggleQuestion6.toString(),
-//                questionSeven = binding.toggleQuestion7.toString(),
-//                questionEight = binding.editTextQuestion8.toString(),
-//                questionNine = binding.toggleQuestion9.toString(),
-//                dateTime = getDateTimeString(OffsetDateTime.now()),
-//                userId = 0
-//            )
-//
-//            dailyRecordViewModel.insert(questionnaire)
-//        }
+        dailyRecordViewModel.navigateToMainFragment.observe(viewLifecycleOwner) {
+            if (it == true) {
+                this.findNavController()
+                    .navigate(DailyRecordFragmentDirections.actionDailyRecordFragmentToMainFragment())
+                dailyRecordViewModel.doneNavigating()
+            }
+        }
 
         return view
     }
