@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="dailyRecordViewModel"
             type="io.github.regbl.migrainetracker.viewmodel.DailyRecordViewModel" />
@@ -23,7 +22,7 @@
             android:layout_weight="9">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
@@ -39,7 +38,7 @@
                 <EditText
                     android:id="@+id/edit_text_question_1"
                     style="@style/question_edit_text"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textShortMessage"
                     android:minHeight="48dp"
