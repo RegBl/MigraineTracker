@@ -8,8 +8,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import io.github.regbl.migrainetracker.data.model.Questionnaire
 import io.github.regbl.migrainetracker.repository.UserQuestionnaireRepository
+import io.github.regbl.migrainetracker.utility.getDateTimeNowString
 import kotlinx.coroutines.launch
-import java.time.LocalDateTime.now
 
 /**
  * ViewModel used in DailyRecordFragment
@@ -33,7 +33,6 @@ class DailyRecordViewModel(private val repository: UserQuestionnaireRepository) 
     @RequiresApi(Build.VERSION_CODES.O)
     fun onSubmitQuestionnaire() {
 
-        // assign questions to temporary variables
         val tempQ1 = questionOneText.value ?: ""
         val tempQ2 = questionTwoSlider.value ?: 1.0f
         val tempQ3 = questionThreeToggle.value ?: false
@@ -44,10 +43,6 @@ class DailyRecordViewModel(private val repository: UserQuestionnaireRepository) 
         val tempQ8 = questionEightText.value ?: ""
         val tempQ9 = questionNineToggle.value ?: false
 
-        // get current dateTime as String
-        val dateTime = now().toString()
-
-        // create Questionnaire object from temporary variables and call insert()
         insert(
             Questionnaire(
                 1,
@@ -60,7 +55,7 @@ class DailyRecordViewModel(private val repository: UserQuestionnaireRepository) 
                 tempQ7.toString(),
                 tempQ8,
                 tempQ9.toString(),
-                dateTime
+                getDateTimeNowString()
             )
         )
         _navigateToMainFragment.value = true

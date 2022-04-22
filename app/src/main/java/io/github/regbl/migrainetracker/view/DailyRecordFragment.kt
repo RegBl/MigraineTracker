@@ -45,10 +45,4 @@ class DailyRecordFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun getDateTimeString(date: OffsetDateTime): String {
-        val formatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME
-        return date.format(formatter)
-    }
 }
