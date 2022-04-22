@@ -1,4 +1,4 @@
-package io.github.regbl.migrainetracker.data.adapters
+package io.github.regbl.migrainetracker.adapters
 
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
