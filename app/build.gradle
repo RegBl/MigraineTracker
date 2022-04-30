@@ -68,6 +68,11 @@ dependencies {
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"
     androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
 
+    // RecyclerView
+    implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerViewVersion"
+    implementation "androidx.recyclerview:recyclerview-selection:$rootProject.recyclerViewSelectionVersion"
+
+
     // Testing
     testImplementation "junit:junit:$rootProject.junitVersion"
     androidTestImplementation("androidx.test.espresso:espresso-core:$rootProject.espressoVersion", {
