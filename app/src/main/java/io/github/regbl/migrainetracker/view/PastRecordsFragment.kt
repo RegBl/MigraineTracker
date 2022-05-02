@@ -1,33 +1,34 @@
 package io.github.regbl.migrainetracker.view
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import io.github.regbl.migrainetracker.R
+import androidx.fragment.app.Fragment
+import io.github.regbl.migrainetracker.databinding.FragmentPastRecordsBinding
 import io.github.regbl.migrainetracker.viewmodel.PastRecordsViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PastRecordsFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = PastRecordsFragment()
-    }
+    private var _binding: FragmentPastRecordsBinding? = null
+    private val binding get() = _binding!!
 
-    private lateinit var viewModel: PastRecordsViewModel
+    private val pastRecordsViewModel: PastRecordsViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_past_records, container, false)
+        _binding = FragmentPastRecordsBinding.inflate(inflater, container, false)
+        val view = binding.root
+
+        return view
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(PastRecordsViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 }

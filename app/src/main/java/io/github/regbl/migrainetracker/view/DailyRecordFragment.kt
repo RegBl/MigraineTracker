@@ -11,8 +11,6 @@ import androidx.navigation.fragment.findNavController
 import io.github.regbl.migrainetracker.databinding.FragmentDailyRecordBinding
 import io.github.regbl.migrainetracker.viewmodel.DailyRecordViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.time.OffsetDateTime
-import java.time.format.DateTimeFormatter
 
 class DailyRecordFragment : Fragment() {
 
