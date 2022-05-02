@@ -21,7 +21,7 @@ class PastRecordsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.past_records_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_past_records, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
