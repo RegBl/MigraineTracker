@@ -5,17 +5,19 @@ import io.github.regbl.migrainetracker.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 
 class MigraineTrackerApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
         startKoin {
-            androidLogger()
+            androidLogger(Level.ERROR)
             androidContext(this@MigraineTrackerApplication)
             modules(
                 AppModule().userQuestionnaireRepositoryModule,
                 AppModule().dailyRecordViewModelModule,
+                AppModule().pastRecordsViewModelModule,
                 AppModule().mainFragmentViewModelModule,
                 AppModule().databaseModule
             )
