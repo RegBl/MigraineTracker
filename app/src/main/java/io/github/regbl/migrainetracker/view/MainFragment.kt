@@ -26,18 +26,18 @@ class MainFragment : Fragment() {
 
         binding.mainFragmentViewModel = mainFragmentViewModel
 
-        // For testing
-        // TODO: Move this to a test class
-//        dailyRecordViewModel.allQuestionnairesByDate.observe(viewLifecycleOwner) {
-//            it.let {
-//                Log.d(TAG, it.toString())
-//            }
-//        }
-
         mainFragmentViewModel.navigateToDailyRecordEntry.observe(viewLifecycleOwner) {
             if (it == true) {
                 this.findNavController()
                     .navigate(MainFragmentDirections.actionMainFragmentToDailyRecordFragment())
+                mainFragmentViewModel.doneNavigating()
+            }
+        }
+
+        mainFragmentViewModel.navigateToPastRecords.observe(viewLifecycleOwner) {
+            if (it == true) {
+                this.findNavController()
+                    .navigate(MainFragmentDirections.actionMainFragmentToPastRecordsFragment())
                 mainFragmentViewModel.doneNavigating()
             }
         }

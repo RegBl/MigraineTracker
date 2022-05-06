@@ -13,12 +13,17 @@ class PastRecordsAdapter :
 
     class PastRecordsViewHolder(private val binding: PastRecordListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
         fun bind(questionnaire: Questionnaire) {
             binding.apply {
                 questionnaireId.text = questionnaire.questionnaireId.toString()
                 questionnaireDate.text = questionnaire.dateTime
                 intensity.text = questionnaire.questionTwo.toString()
             }
+
+//            binding.questionnaireId.text = questionnaire.questionnaireId.toString()
+//            binding.questionnaireDate.text = questionnaire.dateTime
+//            binding.intensity.text = questionnaire.questionTwo.toString()
         }
     }
 

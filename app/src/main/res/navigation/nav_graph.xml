@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_mainFragment_to_dailyRecordFragment"
             app:destination="@id/dailyRecordFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_pastRecordsFragment"
+            app:destination="@id/pastRecordsFragment" />
     </fragment>
 
     <fragment
@@ -25,6 +28,12 @@
             app:destination="@id/mainFragment" />
 
     </fragment>
+    <fragment
+        android:id="@+id/pastRecordsFragment"
+        android:name="io.github.regbl.migrainetracker.view.PastRecordsFragment"
+        android:label="PastRecordsFragment"
+        tools:layout="@layout/fragment_past_records"
+        />
 
 
 </navigation>

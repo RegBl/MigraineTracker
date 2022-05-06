@@ -21,7 +21,7 @@ class AppModule {
     }
 
     val pastRecordsViewModelModule = module {
-        viewModel { PastRecordsViewModel() }
+        viewModel { PastRecordsViewModel(get()) }
     }
 
     val mainFragmentViewModelModule = module {
