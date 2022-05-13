@@ -24,4 +24,6 @@
     <string name="past_record_date">Date:</string>
     <string name="past_record_intensity">Intensity:</string>
     <string name="past_record_id">ID:</string>
+    <string name="search_hint">Date as string</string>
+    <string name="search_title">Search</string>
 </resources>
