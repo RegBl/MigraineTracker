@@ -26,9 +26,11 @@ class MainFragment : Fragment() {
 
         binding.mainFragmentViewModel = mainFragmentViewModel
 
+        val navController = findNavController()
+
         mainFragmentViewModel.navigateToDailyRecordEntry.observe(viewLifecycleOwner) {
             if (it == true) {
-                this.findNavController()
+                navController
                     .navigate(MainFragmentDirections.actionMainFragmentToDailyRecordFragment())
                 mainFragmentViewModel.doneNavigating()
             }
@@ -36,7 +38,7 @@ class MainFragment : Fragment() {
 
         mainFragmentViewModel.navigateToPastRecords.observe(viewLifecycleOwner) {
             if (it == true) {
-                this.findNavController()
+                navController
                     .navigate(MainFragmentDirections.actionMainFragmentToPastRecordsFragment())
                 mainFragmentViewModel.doneNavigating()
             }
