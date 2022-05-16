@@ -20,10 +20,6 @@ class PastRecordsAdapter :
                 questionnaireDate.text = questionnaire.dateTime
                 intensity.text = questionnaire.questionTwo.toString()
             }
-
-//            binding.questionnaireId.text = questionnaire.questionnaireId.toString()
-//            binding.questionnaireDate.text = questionnaire.dateTime
-//            binding.intensity.text = questionnaire.questionTwo.toString()
         }
     }
 

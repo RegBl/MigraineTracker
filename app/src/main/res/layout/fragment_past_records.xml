@@ -7,9 +7,11 @@
 
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
         tools:context=".view.PastRecordsFragment">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -20,5 +22,5 @@
             tools:listitem="@layout/past_record_list_item"
             />
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </LinearLayout>
 </layout>

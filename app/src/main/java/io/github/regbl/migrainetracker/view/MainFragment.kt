@@ -12,7 +12,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
 
-    val mainFragmentViewModel: MainFragmentViewModel by viewModel()
+    private val mainFragmentViewModel: MainFragmentViewModel by viewModel()
 
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
@@ -20,7 +20,7 @@ class MainFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         val view = binding.root
 

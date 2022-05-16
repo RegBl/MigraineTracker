@@ -11,4 +11,6 @@ class UserQuestionnaireRepository(private val questionnaireDao: QuestionnaireDao
     suspend fun insert(questionnaire: Questionnaire) {
         questionnaireDao.insertQuestionnaire(questionnaire)
     }
+
+    fun search(query: String): Flow<List<Questionnaire>> = questionnaireDao.search(query)
 }

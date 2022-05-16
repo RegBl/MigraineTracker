@@ -27,4 +27,7 @@ interface QuestionnaireDao {
 
     @Query("DELETE FROM questionnaire_table")
     fun deleteAll()
+
+    @Query("SELECT * FROM questionnaire_table WHERE dateTime LIKE :query")
+    fun search(query: String): Flow<List<Questionnaire>>
 }
