@@ -26,14 +26,22 @@
         <action
             android:id="@+id/action_dailyRecordFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <argument
+            android:name="questionnaireId"
+            app:argType="integer"
+            android:defaultValue="-1" />
 
     </fragment>
     <fragment
         android:id="@+id/pastRecordsFragment"
         android:name="io.github.regbl.migrainetracker.view.PastRecordsFragment"
         android:label="PastRecordsFragment"
-        tools:layout="@layout/fragment_past_records"
-        />
+        tools:layout="@layout/fragment_past_records">
+        <action
+            android:id="@+id/action_pastRecordsFragment_to_dailyRecordFragment"
+            app:destination="@id/dailyRecordFragment" />
+
+    </fragment>
 
 
 </navigation>

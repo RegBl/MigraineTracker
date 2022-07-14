@@ -2,13 +2,11 @@ package io.github.regbl.migrainetracker.viewmodel
 
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import io.github.regbl.migrainetracker.data.model.Questionnaire
 import io.github.regbl.migrainetracker.repository.UserQuestionnaireRepository
 import io.github.regbl.migrainetracker.utility.getDateTimeNowString
+import io.github.regbl.migrainetracker.view.DailyRecordFragmentArgs
 import kotlinx.coroutines.launch
 
 /**
@@ -61,7 +59,39 @@ class DailyRecordViewModel(private val repository: UserQuestionnaireRepository) 
         _navigateToMainFragment.value = true
     }
 
-    fun insert(questionnaire: Questionnaire) = viewModelScope.launch {
+    /*
+     * Takes an id, displays a blank questionnaire if the id=-1, otherwise displays the questionnaire with the id
+     */
+    fun setupQuestionnaire(id: Int) {
+        if (id == -1) {
+            questionOneText.value = ""
+            questionTwoSlider.value = 1.0f
+            questionThreeToggle.value = false
+            questionFourText.value = ""
+            questionFiveToggle.value = false
+            questionSixToggle.value = false
+            questionSevenToggle.value = false
+            questionEightText.value = ""
+            questionNineToggle.value = false
+        } else {
+            viewModelScope.launch {
+                val questionnaire = repository.getQuestionnaire(id).asLiveData().value
+                if (questionnaire != null) {
+                    questionOneText.value = questionnaire.questionOne
+                    questionTwoSlider.value = questionnaire.questionTwo?.toFloat() ?: 1.0f
+                    questionThreeToggle.value = questionnaire.questionThree.toBoolean()
+                    questionFourText.value = questionnaire.questionFour
+                    questionFiveToggle.value = questionnaire.questionFive.toBoolean()
+                    questionSixToggle.value = questionnaire.questionSix.toBoolean()
+                    questionSevenToggle.value = questionnaire.questionSeven.toBoolean()
+                    questionEightText.value = questionnaire.questionEight
+                    questionNineToggle.value = questionnaire.questionNine.toBoolean()
+                }
+            }
+        }
+    }
+
+    private fun insert(questionnaire: Questionnaire) = viewModelScope.launch {
         repository.insert(questionnaire)
     }
 

@@ -12,5 +12,9 @@ class UserQuestionnaireRepository(private val questionnaireDao: QuestionnaireDao
         questionnaireDao.insertQuestionnaire(questionnaire)
     }
 
-    fun search(query: String): Flow<List<Questionnaire>> = questionnaireDao.search(query)
+    fun search(query: String) = questionnaireDao.search(query)
+
+    fun getQuestionnaire(id: Int): Flow<Questionnaire> {
+        return questionnaireDao.getQuestionnaire(id)
+    }
 }

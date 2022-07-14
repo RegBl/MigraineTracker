@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
 import io.github.regbl.migrainetracker.R
 import io.github.regbl.migrainetracker.adapters.PastRecordsAdapter
+import io.github.regbl.migrainetracker.data.model.Questionnaire
 import io.github.regbl.migrainetracker.databinding.FragmentPastRecordsBinding
 import io.github.regbl.migrainetracker.viewmodel.PastRecordsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
