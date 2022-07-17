@@ -26,4 +26,5 @@
     <string name="past_record_id">ID:</string>
     <string name="search_hint">Date as string</string>
     <string name="search_title">Search</string>
+    <string name="delete">Delete</string>
 </resources>

@@ -1,12 +1,16 @@
 package io.github.regbl.migrainetracker.viewmodel
 
 import android.os.Build
+import android.view.View
 import androidx.annotation.RequiresApi
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import io.github.regbl.migrainetracker.data.model.Questionnaire
 import io.github.regbl.migrainetracker.repository.UserQuestionnaireRepository
 import io.github.regbl.migrainetracker.utility.getDateTimeNowString
-import io.github.regbl.migrainetracker.view.DailyRecordFragmentArgs
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch
 
 /**
@@ -17,6 +21,11 @@ class DailyRecordViewModel(private val repository: UserQuestionnaireRepository) 
     private val _navigateToMainFragment: MutableLiveData<Boolean?> = MutableLiveData<Boolean?>()
     val navigateToMainFragment: LiveData<Boolean?>
         get() = _navigateToMainFragment
+
+    private val _deleteButtonVisibility: MutableLiveData<Int?> = MutableLiveData<Int?>()
+    val deleteButtonVisibility: LiveData<Int?>
+        get() = _deleteButtonVisibility
+    var questionnaireId: Int = -1
 
     val questionOneText = MutableLiveData<String>()
     var questionTwoSlider = MutableLiveData(1.0f)
@@ -59,13 +68,18 @@ class DailyRecordViewModel(private val repository: UserQuestionnaireRepository) 
         _navigateToMainFragment.value = true
     }
 
+    fun onDeleteDailyRecord() = viewModelScope.launch {
+        repository.delete(questionnaireId)
+    }
+
     /*
      * Takes an id, displays a blank questionnaire if the id=-1, otherwise displays the questionnaire with the id
      */
     fun setupQuestionnaire(id: Int) {
+        questionnaireId = id
         if (id == -1) {
             questionOneText.value = ""
-            questionTwoSlider.value = 1.0f
+            questionTwoSlider.value = 5.0f
             questionThreeToggle.value = false
             questionFourText.value = ""
             questionFiveToggle.value = false
@@ -73,12 +87,13 @@ class DailyRecordViewModel(private val repository: UserQuestionnaireRepository) 
             questionSevenToggle.value = false
             questionEightText.value = ""
             questionNineToggle.value = false
+            _deleteButtonVisibility.value = View.GONE
         } else {
             viewModelScope.launch {
-                val questionnaire = repository.getQuestionnaire(id).asLiveData().value
+                val questionnaire = repository.getQuestionnaire(id).firstOrNull()
                 if (questionnaire != null) {
                     questionOneText.value = questionnaire.questionOne
-                    questionTwoSlider.value = questionnaire.questionTwo?.toFloat() ?: 1.0f
+                    questionTwoSlider.value = questionnaire.questionTwo?.toFloat() ?: 5.0f
                     questionThreeToggle.value = questionnaire.questionThree.toBoolean()
                     questionFourText.value = questionnaire.questionFour
                     questionFiveToggle.value = questionnaire.questionFive.toBoolean()
@@ -86,6 +101,7 @@ class DailyRecordViewModel(private val repository: UserQuestionnaireRepository) 
                     questionSevenToggle.value = questionnaire.questionSeven.toBoolean()
                     questionEightText.value = questionnaire.questionEight
                     questionNineToggle.value = questionnaire.questionNine.toBoolean()
+                    _deleteButtonVisibility.value = View.VISIBLE
                 }
             }
         }

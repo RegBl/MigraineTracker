@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="dailyRecordViewModel"
             type="io.github.regbl.migrainetracker.viewmodel.DailyRecordViewModel" />
@@ -40,13 +41,13 @@
                     style="@style/question_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:importantForAutofill="no"
                     android:inputType="textShortMessage"
                     android:minHeight="48dp"
                     android:text="@={dailyRecordViewModel.questionOneText}"
                     android:textColorHint="#757575"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/text_question_1"
-                    android:importantForAutofill="no" />
+                    app:layout_constraintTop_toBottomOf="@id/text_question_1" />
 
                 <View
                     android:id="@+id/divider_question_2"
@@ -133,13 +134,13 @@
                     style="@style/question_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:importantForAutofill="no"
                     android:inputType="text"
                     android:minHeight="48dp"
                     android:text="@={dailyRecordViewModel.questionFourText}"
                     android:textColorHint="#757575"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/text_question_4"
-                    android:importantForAutofill="no" />
+                    app:layout_constraintTop_toBottomOf="@id/text_question_4" />
 
                 <View
                     android:id="@+id/divider_question_5"
@@ -249,13 +250,13 @@
                     style="@style/question_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:importantForAutofill="no"
                     android:inputType="text"
                     android:minHeight="48dp"
                     android:text="@={dailyRecordViewModel.questionEightText}"
                     android:textColorHint="#757575"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/text_question_8"
-                    android:importantForAutofill="no" />
+                    app:layout_constraintTop_toBottomOf="@id/text_question_8" />
 
                 <View
                     android:id="@+id/divider_question_9"
@@ -289,16 +290,37 @@
 
         </ScrollView>
 
-        <Button
-            android:id="@+id/button_submit_daily_record"
-            style="@style/button"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:minHeight="32dp"
-            android:onClick="@{() -> dailyRecordViewModel.onSubmitQuestionnaire()}"
-            android:text="@string/submit" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottom_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/button_submit_daily_record"
+                style="@style/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:onClick="@{() -> dailyRecordViewModel.onSubmitQuestionnaire()}"
+                android:text="@string/submit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/button_delete_daily_record"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/button_delete_daily_record"
+                style="@style/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:onClick="@{() -> dailyRecordViewModel.onDeleteDailyRecord()}"
+                android:text="@string/delete"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button_submit_daily_record"
+                android:visibility="@{dailyRecordViewModel.deleteButtonVisibility}"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 </layout>

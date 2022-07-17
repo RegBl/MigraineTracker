@@ -17,4 +17,8 @@ class UserQuestionnaireRepository(private val questionnaireDao: QuestionnaireDao
     fun getQuestionnaire(id: Int): Flow<Questionnaire> {
         return questionnaireDao.getQuestionnaire(id)
     }
+
+    suspend fun delete(id: Int) {
+        questionnaireDao.delete(id)
+    }
 }

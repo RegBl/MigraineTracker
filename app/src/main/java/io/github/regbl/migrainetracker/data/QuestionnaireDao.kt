@@ -23,7 +23,7 @@ interface QuestionnaireDao {
 
     // Delete
     @Query("DELETE FROM questionnaire_table WHERE questionnaireId = :questionnaireId")
-    fun delete(questionnaireId: Int)
+    suspend fun delete(questionnaireId: Int)
 
     @Query("DELETE FROM questionnaire_table")
     fun deleteAll()

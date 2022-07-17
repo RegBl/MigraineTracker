@@ -39,6 +39,8 @@ class DailyRecordFragment : Fragment() {
                 }
             }
         }
+        binding.lifecycleOwner = viewLifecycleOwner
+
         return view
     }
 
