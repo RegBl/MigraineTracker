@@ -18,6 +18,10 @@ class UserQuestionnaireRepository(private val questionnaireDao: QuestionnaireDao
         return questionnaireDao.getQuestionnaire(id)
     }
 
+    suspend fun update(questionnaire: Questionnaire) {
+        questionnaireDao.updateQuestionnaire(questionnaire)
+    }
+
     suspend fun delete(id: Int) {
         questionnaireDao.delete(id)
     }

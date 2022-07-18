@@ -19,6 +19,7 @@
     <string name="hint_edit_text_q_4">Describe aura, if any</string>
     <string name="hint_edit_text_q_8">List medications, if any</string>
     <string name="submit">Submit</string>
+    <string name="update">Update</string>
 
     <!-- Past record list item -->
     <string name="past_record_date">Date:</string>

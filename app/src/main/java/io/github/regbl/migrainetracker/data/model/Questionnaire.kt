@@ -1,11 +1,16 @@
 package io.github.regbl.migrainetracker.data.model
 
-import androidx.room.*
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity(
     tableName = "questionnaire_table"
 )
 data class Questionnaire(
+    @PrimaryKey(autoGenerate = true)
+    var questionnaireId: Int,
+
+    // userId - foreign key artefact of previous design
     var userId: Int,
 
     // "I had headaches lasting how long?"
@@ -36,7 +41,4 @@ data class Questionnaire(
     var questionNine: String?,
 
     var dateTime: String
-) {
-    @PrimaryKey(autoGenerate = true)
-    var questionnaireId: Int = 0
-}
+)

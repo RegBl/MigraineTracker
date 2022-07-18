@@ -31,7 +31,7 @@ class MainFragment : Fragment() {
         mainFragmentViewModel.navigateToDailyRecordEntry.observe(viewLifecycleOwner) {
             if (it == true) {
                 navController
-                    .navigate(MainFragmentDirections.actionMainFragmentToDailyRecordFragment())
+                    .navigate(MainFragmentDirections.actionMainFragmentToDailyRecordFragment(0))
                 mainFragmentViewModel.doneNavigating()
             }
         }

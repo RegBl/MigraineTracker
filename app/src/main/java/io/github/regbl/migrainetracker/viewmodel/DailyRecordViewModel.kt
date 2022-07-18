@@ -25,10 +25,13 @@ class DailyRecordViewModel(private val repository: UserQuestionnaireRepository) 
     private val _deleteButtonVisibility: MutableLiveData<Int?> = MutableLiveData<Int?>()
     val deleteButtonVisibility: LiveData<Int?>
         get() = _deleteButtonVisibility
-    var questionnaireId: Int = -1
+
+    var buttonString = MutableLiveData<String>()
+    var questionnaireId: Int = 0
+    private var pastRecordDateTimeString: String? = null
 
     val questionOneText = MutableLiveData<String>()
-    var questionTwoSlider = MutableLiveData(1.0f)
+    val questionTwoSlider = MutableLiveData(1.0f)
     val questionThreeToggle = MutableLiveData<Boolean>()
     val questionFourText = MutableLiveData<String>()
     val questionFiveToggle = MutableLiveData<Boolean>()
@@ -39,33 +42,28 @@ class DailyRecordViewModel(private val repository: UserQuestionnaireRepository) 
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun onSubmitQuestionnaire() {
-
-        val tempQ1 = questionOneText.value ?: ""
-        val tempQ2 = questionTwoSlider.value ?: 1.0f
-        val tempQ3 = questionThreeToggle.value ?: false
-        val tempQ4 = questionFourText.value ?: ""
-        val tempQ5 = questionFiveToggle.value ?: false
-        val tempQ6 = questionSixToggle.value ?: false
-        val tempQ7 = questionSevenToggle.value ?: false
-        val tempQ8 = questionEightText.value ?: ""
-        val tempQ9 = questionNineToggle.value ?: false
-
-        insert(
-            Questionnaire(
-                1,
-                tempQ1,
-                tempQ2.toString(),
-                tempQ3.toString(),
-                tempQ4,
-                tempQ5.toString(),
-                tempQ6.toString(),
-                tempQ7.toString(),
-                tempQ8,
-                tempQ9.toString(),
-                getDateTimeNowString()
-            )
-        )
+        when (questionnaireId) {
+            0 -> insert(getCurrentQuestionnaire(0))
+            else -> update(getCurrentQuestionnaire(questionnaireId))
+        }
         _navigateToMainFragment.value = true
+    }
+
+    private fun getCurrentQuestionnaire(id: Int): Questionnaire {
+        return Questionnaire(
+            id,
+            1,
+            questionOneText.value ?: "",
+            (questionTwoSlider.value ?: 1.0f).toString(),
+            (questionThreeToggle.value ?: false).toString(),
+            questionFourText.value ?: "",
+            (questionFiveToggle.value ?: false).toString(),
+            (questionSixToggle.value ?: false).toString(),
+            (questionSevenToggle.value ?: false).toString(),
+            questionEightText.value ?: "",
+            (questionNineToggle.value ?: false).toString(),
+            dateTime = pastRecordDateTimeString ?: getDateTimeNowString()
+        )
     }
 
     fun onDeleteDailyRecord() = viewModelScope.launch {
@@ -77,9 +75,9 @@ class DailyRecordViewModel(private val repository: UserQuestionnaireRepository) 
      */
     fun setupQuestionnaire(id: Int) {
         questionnaireId = id
-        if (id == -1) {
+        if (id == 0) {
             questionOneText.value = ""
-            questionTwoSlider.value = 5.0f
+            questionTwoSlider.value = 1.0f
             questionThreeToggle.value = false
             questionFourText.value = ""
             questionFiveToggle.value = false
@@ -88,12 +86,13 @@ class DailyRecordViewModel(private val repository: UserQuestionnaireRepository) 
             questionEightText.value = ""
             questionNineToggle.value = false
             _deleteButtonVisibility.value = View.GONE
+            buttonString.value = "Submit"
         } else {
             viewModelScope.launch {
                 val questionnaire = repository.getQuestionnaire(id).firstOrNull()
                 if (questionnaire != null) {
                     questionOneText.value = questionnaire.questionOne
-                    questionTwoSlider.value = questionnaire.questionTwo?.toFloat() ?: 5.0f
+                    questionTwoSlider.value = questionnaire.questionTwo?.toFloat() ?: 1.0f
                     questionThreeToggle.value = questionnaire.questionThree.toBoolean()
                     questionFourText.value = questionnaire.questionFour
                     questionFiveToggle.value = questionnaire.questionFive.toBoolean()
@@ -102,6 +101,8 @@ class DailyRecordViewModel(private val repository: UserQuestionnaireRepository) 
                     questionEightText.value = questionnaire.questionEight
                     questionNineToggle.value = questionnaire.questionNine.toBoolean()
                     _deleteButtonVisibility.value = View.VISIBLE
+                    pastRecordDateTimeString = questionnaire.dateTime
+                    buttonString.value = "Update"
                 }
             }
         }
@@ -109,6 +110,10 @@ class DailyRecordViewModel(private val repository: UserQuestionnaireRepository) 
 
     private fun insert(questionnaire: Questionnaire) = viewModelScope.launch {
         repository.insert(questionnaire)
+    }
+
+    private fun update(questionnaire: Questionnaire) = viewModelScope.launch {
+        repository.update(questionnaire)
     }
 
     fun doneNavigating() {

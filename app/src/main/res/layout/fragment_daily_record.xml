@@ -302,7 +302,7 @@
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 android:onClick="@{() -> dailyRecordViewModel.onSubmitQuestionnaire()}"
-                android:text="@string/submit"
+                android:text="@{dailyRecordViewModel.buttonString}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/button_delete_daily_record"
                 app:layout_constraintStart_toStartOf="parent" />
