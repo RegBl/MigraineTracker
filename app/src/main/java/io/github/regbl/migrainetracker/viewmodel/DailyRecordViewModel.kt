@@ -49,6 +49,11 @@ class DailyRecordViewModel(private val repository: UserQuestionnaireRepository) 
         _navigateToMainFragment.value = true
     }
 
+    fun onDeleteDailyRecord() = viewModelScope.launch {
+        repository.delete(questionnaireId)
+        _navigateToMainFragment.value = true
+    }
+
     private fun getCurrentQuestionnaire(id: Int): Questionnaire {
         return Questionnaire(
             id,
@@ -64,11 +69,6 @@ class DailyRecordViewModel(private val repository: UserQuestionnaireRepository) 
             (questionNineToggle.value ?: false).toString(),
             dateTime = pastRecordDateTimeString ?: getDateTimeNowString()
         )
-    }
-
-    fun onDeleteDailyRecord() = viewModelScope.launch {
-        repository.delete(questionnaireId)
-        _navigateToMainFragment.value = true
     }
 
     /*
