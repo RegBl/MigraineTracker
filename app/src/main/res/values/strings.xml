@@ -28,4 +28,6 @@
     <string name="search_hint">Date as string</string>
     <string name="search_title">Search</string>
     <string name="delete">Delete</string>
+    <string name="intensity_text">Intensity: %s</string>
+    <string name="id_text">ID: %s</string>
 </resources>

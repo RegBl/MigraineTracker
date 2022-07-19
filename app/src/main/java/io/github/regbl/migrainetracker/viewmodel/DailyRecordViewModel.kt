@@ -68,6 +68,7 @@ class DailyRecordViewModel(private val repository: UserQuestionnaireRepository) 
 
     fun onDeleteDailyRecord() = viewModelScope.launch {
         repository.delete(questionnaireId)
+        _navigateToMainFragment.value = true
     }
 
     /*

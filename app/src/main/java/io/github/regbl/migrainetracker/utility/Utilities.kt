@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter
 
 @RequiresApi(Build.VERSION_CODES.O)
 fun getDateTimeString(date: OffsetDateTime): String {
-    val formatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME
+    val formatter = DateTimeFormatter.ofPattern("EEE, MMM d, yyyy HH:mm")
     return date.format(formatter)
 }
 
