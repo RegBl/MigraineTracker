@@ -72,7 +72,7 @@ class DailyRecordViewModel(private val repository: UserQuestionnaireRepository) 
     }
 
     /*
-     * Takes an id, displays a blank questionnaire if the id=-1, otherwise displays the questionnaire with the id
+     * Takes an id, displays a blank questionnaire if the id=0, otherwise displays the questionnaire with the id
      */
     fun setupQuestionnaire(id: Int) {
         questionnaireId = id
